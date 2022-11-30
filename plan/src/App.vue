@@ -132,7 +132,7 @@ export default {
             new_plan_loading: false,
             show_custom_plan_panel: false,
             new_plan_query_loading: false,
-            query_url: "http://115.27.161.37:5000/query_opt"
+            query_url: "http://0.0.0.0:5000/query_opt"
         }
     },
     computed: {

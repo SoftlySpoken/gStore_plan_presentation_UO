@@ -4,13 +4,15 @@ from flask_cors import CORS
 import json
 
 gStore_config = {
-    'ip': '115.27.161.37',
-    'port': '9000',
+    'ip': '127.0.0.1',
+    'port': '3000',
     'user': 'root',
     'password': '123456',
     'database': 'lubm'
 }
 gc = GstoreConnector(gStore_config['ip'], gStore_config['port'], gStore_config['user'], gStore_config['password'])
+res = gc.showuser()
+print(res)
 
 app = Flask(__name__, static_url_path='', static_folder='./plan/dist/')
 app.config['threaded'] = True
@@ -24,6 +26,7 @@ def server():
 
 @app.route('/query_opt', methods=['POST'])
 def query():
+    print("query")
     req = request.get_json()
     query = req['query']
     plan = req['plan']
@@ -35,6 +38,7 @@ def query():
 
 @app.route('/query', methods=['POST'])
 def query_opt():
+    print("query_opt")
     req = request.get_json()
     query = req['query']
     plan = req['plan']
